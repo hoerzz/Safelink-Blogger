@@ -1281,10 +1281,9 @@ $(document).ready(function () {
             },
         });
     var request = !1;
-    $('#wcGetLink').each(function () {
-        $(this).attr('onclick', '');
-    }).click(function () {
+    wcGetLink.click(function (e) {
         0 == request && (gotolinkcountdown(), (request = !0)), $("html, body").animate({ scrollTop: eval(gotolink.offset().top - 10) }, 500);
+        e.preventDefault();
     }),
         gotolink.on("click", function () {
             var t = aesCrypto.decrypt(convertstr($.urlParam("o")), convertstr("root"));
