@@ -1281,11 +1281,11 @@ $(document).ready(function () {
             },
         });
     var request = !1;
-    wcGetLink.click(function (e) {
-        e.preventDefault();
+    wcGetLink.click(function () {
         0 == request && (gotolinkcountdown(), (request = !0)), $("html, body").animate({ scrollTop: eval(gotolink.offset().top - 10) }, 500);
     }),
-        gotolink.on("click", function () {
+        gotolink.on("click", function (e) {
+            e.preventDefault();
             var t = aesCrypto.decrypt(convertstr($.urlParam("o")), convertstr("root"));
             window.location.href = t;
         }),
