@@ -1283,10 +1283,10 @@ $(document).ready(function () {
     var request = !1;
     wcGetLink.off("click", function () {
         0 == request && (gotolinkcountdown(), (request = !0)), $("html, body").animate({ scrollTop: eval(gotolink.offset().top - 10) }, 500);
+    });
+    gotolink.on("click", function () {
+        var t = aesCrypto.decrypt(convertstr($.urlParam("o")), convertstr("root"));
+        window.location.href = t;
     }),
-        gotolink.on("click", function () {
-            var t = aesCrypto.decrypt(convertstr($.urlParam("o")), convertstr("root"));
-            window.location.href = t;
-        }),
         on(!1, function () { });
 });
