@@ -1263,7 +1263,7 @@ $(document).ready(function () {
         gotolink = $("#gotolink"),
         timer = $("#timer");
     function gotolinkcountdown() {
-        var t = 3;
+        var t = 30;
         gotolink.removeClass("hidden");
         var e = setInterval(function () {
             var r = (t -= 1);
@@ -1281,7 +1281,8 @@ $(document).ready(function () {
             },
         });
     var request = !1;
-    wcGetLink.off("click", function () {
+    wcGetLink.click(function (e) {
+        e.preventDefault();
         0 == request && (gotolinkcountdown(), (request = !0)), $("html, body").animate({ scrollTop: eval(gotolink.offset().top - 10) }, 500);
     });
     gotolink.on("click", function () {
