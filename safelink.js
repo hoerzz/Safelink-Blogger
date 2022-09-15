@@ -1263,7 +1263,7 @@ $(document).ready(function () {
         gotolink = $("#gotolink"),
         timer = $("#timer");
     function gotolinkcountdown() {
-        var t = 30;
+        var t = 3;
         gotolink.removeClass("hidden");
         var e = setInterval(function () {
             var r = (t -= 1);
@@ -1281,14 +1281,12 @@ $(document).ready(function () {
             },
         });
     var request = !1;
-    $(document).ready(function () {
-        $("#wcGetLink").load(function () {
-            0 == request && (gotolinkcountdown(), (request = !0));
-        });
-    });
-    gotolink.on("click", function () {
-        var t = aesCrypto.decrypt(convertstr($.urlParam("o")), convertstr("root"));
-        window.location.href = t;
+    $("#wcGetLink").on('change', function () {
+        0 == request && (gotolinkcountdown(), $("#gotolink").show());
     }),
+        gotolink.on("click", function () {
+            var t = aesCrypto.decrypt(convertstr($.urlParam("o")), convertstr("root"));
+            window.location.href = t;
+        }),
         on(!1, function () { });
 });
